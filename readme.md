@@ -1,11 +1,11 @@
 # Car Price prediction using Machine learning
 
-Have a test of the model build and see predictions here: carpriceprediction-ml.herokuapp.com
+Have a test of the model build and see predictions here: https://carpriceprediction-ml.herokuapp.com
 ## Freatures
 1. Seller_Type
 2. Transmission
 3. Owner
-4. wFuel_Type
+4. Fuel_Type
 
 
 
