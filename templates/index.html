@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+        *::before,
+        *::after {
+            box-sizing: inherit
+        }
+        
+        html {
+            box-sizing: border-box;
+            font-size: 75%
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            box-sizing: border-box
+        }
+        
+        button {
+            background: #E41B46;
+            padding: 1rem .8rem;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5rem
+        }
+        
+        label {
+            display: block
+        }
+        
+        .form__group {
+            margin: 1rem 0rem
+        }
+        
+        select,
+        input {
+            min-width: 10rem
+        }
+        
+        .container {
+            margin: 0 2rem
+        }
+        
+        @media only screen and (min-width: 37.5rem) {
+            .container {
+                margin: 0 5rem
+            }
+        }
+        
+        .result {
+            margin: 1rem 0rem
+        }
+    </style>
+    <title>Car Price Prediction using Machile Learning</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Car Price Prediction</h1>
+            <p>Using Machine Learning</p>
+            <hr>
+            <h2 class="result">{{ prediction_text }}</h2>
+        </div>
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Predictive analysis</h2>
+            <div class="form__group">
+                <label for="year">Year</label>
+                <input type="number" name="Year" id="year">
+            </div>
+            <div class="form__group">
+                <label for="predsent_price">Showroom Price (in lakhs)</label>
+                <input type="number" name="Present_Price" id="predsent_price" required>
+            </div>
+            <div class="form__group">
+                <label for="kms_driven">How many Kilometers driven</label>
+                <input type="number" name="Kms_Driven" id="kms_driven" required>
+            </div>
+            <div class="form__group">
+                <label for="owner">How much owners previously had the car (0 or 1 or 2)</label>
+                <input type="number" name="Owner" id="owner" required>
+            </div>
+            <div class="form__group">
+                <label for="fuel_type">What is the Fuel type</label>
+                <select name="Fuel_Type_Petrol" id="fuel_type" required>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+            </div>
+            <div class="form__group">
+                <label for="seller_type">Are you A Dealer or an Individual</label>
+                <select name="Seller_Type_Individual" id="seller_type" required>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+            </div>
+            <div class="form__group">
+                <label for="transmission">Transmission type</label>
+                <select name="Transmission_Mannual" id="transmission" required>
+                    <option value="Mannual">Manual Car</option>
+                    <option value="Automatic">Automatic Car</option>
+                </select>
+            </div>
+            <button class="btn__submit" type="submit">Calculate the Selling Price</button>
+        </form>
+    </div>
+</body>
+
+</html>
